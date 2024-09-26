@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exemplo de Media Queries</title>
+</head>
+<style>
+    
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background: #333;
+        color: white;
+        padding: 1rem;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+    }
+    
+    .galeria {
+        padding: 20px;
+    }
+    
+    .galeria .imagens {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .galeria img {
+        width: 100%;
+        height: auto;
+    }
+    
+    
+    .texto {
+        padding: 20px;
+    }
+    
+    /* Media Queries */
+    @media only screen and (max-width: 600px) {
+        /* Estilo para smartphones */
+        nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+    
+        .galeria .imagens {
+            grid-template-columns: 1fr;
+        }
+    
+        .texto {
+            columns: 1;
+        }
+    }
+    
+    @media only screen and (min-width: 601px) and (max-width: 900px) {
+        /* Estilo para tablets */
+        .galeria .imagens {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    
+        .texto {
+            columns: 2;
+        }
+    }
+    
+    @media only screen and (min-width: 901px) {
+        /* Estilo para desktops */
+        .galeria .imagens {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    
+        .texto {
+            columns: 3;
+        }
+    }
+    
+    /* Estilos de impressão */
+    @media print {
+        body {
+            color: black;
+            background: white;
+        }
+    
+        nav, footer {
+            display: none; 
+        }
+    
+        .galeria .imagens {
+            display: block; 
+        }
+    
+        .galeria img {
+            width: 100%; 
+        }
+    }
+
+</style>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="galeria">
+            <h2>Galeria de Imagens</h2>
+            <div class="imagens">
+                <img src="image1.jpg" alt="Imagem 1">
+                <img src="image2.jpg" alt="Imagem 2">
+                <img src="image3.jpg" alt="Imagem 3">
+                <img src="image4.jpg" alt="Imagem 4">
+            </div>
+        </section>
+
+        <section class="texto">
+            <h2>Texto em Múltiplas Colunas</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum viverra felis non justo scelerisque, nec varius est gravida.</p>
+            <p>Curabitur suscipit metus at nisi hendrerit, sed pulvinar leo fringilla. Morbi a consequat leo.</p>
+        </section>
+    </main>
+
+</body>
+</html>
